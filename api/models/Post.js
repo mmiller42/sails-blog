@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 	attributes: {
 		title: {
@@ -7,7 +9,11 @@ module.exports = {
 		body: {
 			type: 'text',
 			required: true
+		},
+		author: {
+			model: 'author',
+			required: true
 		}
-		// TODO: add slug, author, categories later on
+		// TODO: add slug, categories later on
 	}
 };

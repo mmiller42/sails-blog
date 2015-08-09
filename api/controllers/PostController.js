@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 	mostRecent: function (req, res) {
 		Post.find().sort({ createdAt: -1 }).limit(1).exec(function (err, posts) {
