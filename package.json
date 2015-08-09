@@ -1,9 +1,9 @@
 {
   "name": "sails-blog",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "version": "0.0.1",
+  "description": "A blog system written on the Sails.js framework, using MongoDB for document storage.",
+  "keywords": [ "blog", "sails.js", "mongodb" ],
   "dependencies": {
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
