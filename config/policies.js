@@ -48,4 +48,28 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+	PostController: {
+		'*': false,
+		find: true,
+		findOne: true,
+		populate: true,
+		create: [ 'isLoggedIn' ],
+		update: [ 'isLoggedIn', 'isAuthor' ],
+		destroy: [ 'isLoggedIn', 'isAuthor' ],
+		renderPosts: true
+	},
+
+	AuthorController: {
+		'*': false,
+		find: true,
+		findOne: true,
+		populate: true,
+		create: [ 'isLoggedIn' ],
+		update: [ 'isLoggedIn', 'isSelf' ],
+		destroy: [ 'isLoggedIn', 'isSelf' ],
+		logIn: true,
+		logOut: true,
+		me: true
+	}
 };

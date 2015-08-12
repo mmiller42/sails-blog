@@ -42,20 +42,12 @@ module.exports = {
 		res.ok();
 	},
 
-	currentUser: function (req, res) {
-		if (req.session.authorId) {
-			Author.findOne(req.session.authorId, function (err, author) {
-				if (err) return res.negotiate(err);
-				if (!author) {
-					req.session.authorId = null;
-					return res.notFound('The current user does not seem to exist any longer. The session has been reset.');
-				}
+	me: function (req, res) {
+		getCurrentAuthor(req.session, function (err, author) {
+			if (err) return res.negotiate(err);
 
-				res.ok(author);
-			});
-		} else {
-			res.ok(null);
-		}
+			res.ok(author);
+		});
 	}
 };
 

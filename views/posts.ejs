@@ -1,0 +1,14 @@
+<div class="col-sm-8">
+	<% for (var i = 0; i < posts.length; ++i) { %>
+	<%- 	partial('post.ejs', { post: posts[i] }) %>
+	<% } %>
+</div>
+
+<div class="col-sm-3 col-sm-offset-1">
+	<h4>Authors</h4>
+	<ul>
+		<% for (var i = 0; i < authors.length; ++i) { %>
+		<li><a href="/authors/<%= authors[i].id %>"><%= authors[i].displayName %></a></li>
+		<% } %>
+	</ul>
+</div>

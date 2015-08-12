@@ -89,7 +89,9 @@ module.exports.views = {
   *                                                                           *
   ****************************************************************************/
 
-  partials: false
+  partials: false,
 
-
+  locals: {
+    moment: require('moment')
+  }
 };

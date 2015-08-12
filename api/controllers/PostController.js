@@ -7,5 +7,19 @@ module.exports = {
 
 			res.ok(posts[0] || null);
 		});
+	},
+
+	renderPosts: function (req, res) {
+		async.parallel({
+			posts: function (done) {
+				Post.find().populate('author').exec(done);
+			},
+			authors: function (done) {
+				Author.find().exec(done);
+			}
+		}, function (err, results) {
+			if (err) return res.negotiate(err);
+			res.view('posts', results);
+		});
 	}
 };
