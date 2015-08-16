@@ -1,0 +1,5 @@
+<div class="post">
+	<h2><a href="/posts/<%= post.slug %>"><%= post.title %></a></h2>
+	<p class="meta"><%= moment(post.createdAt).format('MMMM Do, YYYY, hh:mma') %> by <a href="/authors/<%= post.author.id %>"><%= post.author.displayName %></a></p>
+	<%- post.body %>
+</div>

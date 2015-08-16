@@ -5,7 +5,7 @@ module.exports = {
 		Author.find().exec(function (err, authors) {
 			if (err) return res.negotiate(err);
 
-			if (!req.session.authorId) authors.forEach(deleteSensitiveInfo);
+			authors.forEach(function (author) { deleteSensitiveInfo(author, req.session.authorId); });
 			res.ok(authors);
 		});
 	},
@@ -15,21 +15,21 @@ module.exports = {
 			if (err) return res.negotiate(err);
 			if (!user) return res.notFound();
 
-			if (!req.session.authorId) deleteSensitiveInfo(author);
+			deleteSensitiveInfo(author, req.session.authorId);
 			res.ok(author);
 		});
 	},
 
 	logIn: function (req, res) {
-		if (typeof req.body.email !== 'string' || typeof req.body.password !== 'string') return res.badRequest('Email and password are required.');
+		if (typeof req.body.email !== 'string' || typeof req.body.password !== 'string') return res.badRequest({ message: 'Email and password are required.' });
 
 		Author.findOne({ email: req.body.email.toLowerCase().trim() }).exec(function (err, author) {
 			if (err) return res.negotiate(err);
-			if (!author) return res.notFound('No author exists with the given email address.');
+			if (!author) return res.notFound({ message: 'No author exists with the given email address.' });
 
 			Author.checkPassword(author, req.body.password, function (err, passed) {
 				if (err) return res.negotiate(err);
-				if (!passed) return res.badRequest('The password is incorrect.');
+				if (!passed) return res.badRequest({ message: 'The password is incorrect.' });
 
 				req.session.authorId = author.id;
 				res.ok(author);
@@ -42,16 +42,27 @@ module.exports = {
 		res.ok();
 	},
 
-	me: function (req, res) {
+	getCurrentAuthor: function (req, res) {
 		getCurrentAuthor(req.session, function (err, author) {
 			if (err) return res.negotiate(err);
 
 			res.ok(author);
 		});
+	},
+
+	updateCurrentAuthor: function (req, res) {
+		var attributes = _.without(Object.keys(Author.attributes), [ 'id', 'createdAt', 'updatedAt' ]);
+		var changes = {};
+
+		_.forOwn(req.body, function (value, attribute) {
+			if (attributes.indexOf(attribute) > -1) changes[attribute] = value;
+		});
+
+		Author.update(req.session.authorId, changes, function (err, authors) {
+			if (err) return res.negotiate(err);
+			if (!authors[0]) return res.notFound();
+
+			res.ok(authors[0]);
+		});
 	}
 };
-
-function deleteSensitiveInfo (author) {
-	delete author.email;
-	delete author.password;
-}

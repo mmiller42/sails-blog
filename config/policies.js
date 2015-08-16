@@ -54,7 +54,7 @@ module.exports.policies = {
 		find: true,
 		findOne: true,
 		populate: true,
-		create: [ 'isLoggedIn' ],
+		create: [ 'isLoggedIn', 'isAuthor' ],
 		update: [ 'isLoggedIn', 'isAuthor' ],
 		destroy: [ 'isLoggedIn', 'isAuthor' ],
 		renderPosts: true
@@ -70,6 +70,7 @@ module.exports.policies = {
 		destroy: [ 'isLoggedIn', 'isSelf' ],
 		logIn: true,
 		logOut: true,
-		me: true
+		getCurrentAuthor: true,
+		updateCurrentAuthor: [ 'isLoggedIn' ]
 	}
 };

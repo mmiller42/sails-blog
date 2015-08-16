@@ -32,8 +32,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': 'PostController.renderPosts'
-
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -44,4 +42,16 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  '/': 'ViewsController.posts',
+  '/page/:page': 'ViewsController.posts',
+  '/posts': '/',
+  '/posts/:slug': 'ViewsController.post',
+  '/authors': 'ViewsController.authors',
+  '/authors/:id': 'ViewsController.author',
+  '/authors/:id/page/:page': 'ViewsController.author',
+
+  'POST /api/logIn': 'AuthorController.logIn',
+  'POST /api/logOut': 'AuthorController.logOut',
+  'GET /api/me': 'AuthorController.getCurrentAuthor',
+  'POST /api/me': 'AuthorController.updateCurrentAuthor'
 };

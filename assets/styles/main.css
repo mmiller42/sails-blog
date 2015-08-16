@@ -1,0 +1,86 @@
+h1 a:hover {
+	text-decoration: none;
+}
+
+h1 img {
+	vertical-align: baseline;
+}
+
+#logo-sails {
+	height: 60px;
+}
+
+#logo-blog {
+	height: 48px;
+	position: relative;
+	top: 11px;
+	left: 5px;
+}
+
+#header {
+	padding-bottom: 15px;
+}
+
+#breadcrumbs {
+	margin-top: 30px;
+	font-size: 125%;
+}
+
+#breadcrumbs > a {
+	color: #0C8DA0;
+}
+
+#breadcrumbs > a:hover {
+	color: #14ACC2;
+}
+
+#breadcrumbs > a:last-child {
+	font-weight: bold;
+}
+
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	margin-top: 0;
+}
+
+.posts {
+	margin-bottom: 40px;
+}
+
+.posts > .post {
+	padding-bottom: 20px;
+	border-bottom: 2px solid #EEEEEE;
+	margin-bottom: 20px;
+}
+
+.posts > .post:last-child {
+	padding-bottom: 0;
+	border-bottom: none;
+	margin-bottom: 0;
+}
+
+.post > .meta {
+	color: #888888;
+}
+
+.post > :first-child {
+	margin-top: 0;
+}
+
+.post > :last-child {
+	margin-bottom: 0;
+}
+
+#footer {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#footer > p {
+	text-align: right;
+	color: #888888;
+	font-size: 90%;
+}

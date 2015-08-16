@@ -1,25 +1,17 @@
 'use strict';
 
 module.exports = {
-	mostRecent: function (req, res) {
-		Post.find().sort({ createdAt: -1 }).limit(1).exec(function (err, posts) {
-			if (err) return res.negotiate(err);
+	populate: function (req, res) {
+		if (req.options.alias !== 'author') return res.notFound();
 
-			res.ok(posts[0] || null);
-		});
-	},
-
-	renderPosts: function (req, res) {
-		async.parallel({
-			posts: function (done) {
-				Post.find().populate('author').exec(done);
-			},
-			authors: function (done) {
-				Author.find().exec(done);
-			}
-		}, function (err, results) {
+		Post.findOne(req.params.parentid).populate('author').exec(function (err, post) {
 			if (err) return res.negotiate(err);
-			res.view('posts', results);
+			if (!post) return res.notFound('No record found with the specified id.');
+
+			if (!post.author) return res.notFound('Specified record (' + req.params.parentid + ') is missing relation `author`');
+
+			deleteSensitiveInfo(post.author, req.session.authorId);
+			res.ok(post.author);
 		});
 	}
 };

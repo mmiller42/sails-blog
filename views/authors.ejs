@@ -1,0 +1,10 @@
+<div class="col-sm-12">
+	<div class="authors">
+		<% authors.forEach(function (author) { %>
+		<div class="author">
+			<h3><a href="/authors/<%= author.id %>"><%= author.displayName %></a></h3>
+			<div class="author-bio"><%- author.bio %></div>
+		</div>
+		<% }) %>
+	</div>
+</div>

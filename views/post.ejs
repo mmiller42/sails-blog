@@ -1,5 +1,14 @@
-<div>
-	<h2><a href="/posts/<%= post.slug %>"><%= post.title %></a></h2>
-	<p><%= moment(post.createdAt).format('MMMM Do, YYYY, hh:mma') %> by <a href="/authors/<%= post.author.id %>"><%= post.author.displayName %></a></p>
-	<%- post.body %>
+<div class="col-sm-8">
+	<%- partial('components/post.ejs', { post: post }) %>
+</div>
+
+<div class="col-sm-3 col-sm-offset-1">
+	<% if (post.author.posts.length) { %>
+	<h4>More by <a href="/authors/<%= post.author.id %>"><%= post.author.displayName %></a></h4>
+	<ul class="list-unstyled">
+		<% 	post.author.posts.forEach(function (post) { %>
+		<li><a href="/posts/<%= post.slug %>"><%= post.title %></a></li>
+		<% 	}) %>
+	</ul>
+	<% } %>
 </div>
