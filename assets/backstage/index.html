@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>sails-blog Backstage</title>
+		<link rel="stylesheet" href="/backstage/styles/bootstrap.min.css">
+		<link rel="stylesheet" href="/backstage/styles/main.css">
+	</head>
+	<body ng-app="sailsBlog">
+		<sb-header></sb-header>
+
+		<div ui-view class="container"></div>
+
+		<!-- Vendor -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-resource.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-sanitize.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js"></script>
+		<script src="/backstage/scripts/vendor/angular/parseWLError.js"></script>
+
+		<!-- Core -->
+		<script src="/backstage/scripts/app/core/module.js"></script>
+		<script src="/backstage/scripts/app/core/routes.js"></script>
+
+		<!-- Services -->
+		<script src="/backstage/scripts/app/services/Author.js"></script>
+		<script src="/backstage/scripts/app/services/Post.js"></script>
+		<script src="/backstage/scripts/app/services/getSession.js"></script>
+
+		<!-- Directives -->
+		<script src="/backstage/scripts/app/directives/sbHeader.js"></script>
+		<script src="/backstage/scripts/app/directives/sbLogIn.js"></script>
+		<script src="/backstage/scripts/app/directives/sbAuthorTable.js"></script>
+		<script src="/backstage/scripts/app/directives/sbEditAuthor.js"></script>
+		<script src="/backstage/scripts/app/directives/sbPostTable.js"></script>
+		<script src="/backstage/scripts/app/directives/sbEditPost.js"></script>
+
+	</body>
+</html>

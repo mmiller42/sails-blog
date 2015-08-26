@@ -1,0 +1,12 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#/"><span class="glyphicon glyphicon-cog"></span> Backstage</a>
+		</div>
+		<div id="navbar">
+			<ul class="nav navbar-nav">
+				<li ng-repeat="item in items" ui-sref-active="active"><a ui-sref="{{item.sref}}"><span ng-if="item.glyphicon" class="glyphicon glyphicon-{{item.glyphicon}}"></span> {{item.label}}</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>

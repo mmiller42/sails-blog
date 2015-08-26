@@ -1,0 +1,73 @@
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+	body {
+		padding-top: 150px;
+	}
+}
+
+sb-post-table > table {
+	table-layout: fixed;
+	border-bottom: 2px solid #DDDDDD;
+	min-width: 630px;
+}
+
+sb-post-table > table .created,
+sb-post-table > table .modified {
+	width: 160px;
+}
+
+sb-post-table > table .author {
+	width: 240px;
+}
+
+@media (max-width: 991px) {
+	sb-post-table > table .author {
+		width: 120px;
+	}
+}
+
+sb-post-table > table tbody tr.mine:hover {
+	cursor: pointer;
+}
+
+.table-striped > tbody > tr.info:nth-of-type(odd):not(:hover) > th,
+.table-striped > tbody > tr.info:nth-of-type(odd):not(:hover) > td {
+	background-color: #D3E7F1;
+}
+
+p.success,
+p.error {
+	padding: 15px;
+}
+
+span.form-control {
+	border-color: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	background: transparent;
+}
+
+sb-edit-post #editPost_body {
+	height: 200px;
+	height: 40vh;
+	min-height: 100px;
+	resize: vertical;
+}
+
+sb-edit-post #editPost_preview {
+	background: #F6F6F6;
+	padding: 20px;
+}
+
+sb-edit-post #editPost_preview > :first-child {
+	margin-top: 0;
+}
+
+sb-edit-post #editPost_preview > .post > :last-child {
+	margin-bottom: 0;
+}

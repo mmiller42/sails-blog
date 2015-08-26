@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title><%= _.map(breadcrumbs, 'label').reverse().join(' ‹ ') %></title>
-		<!--STYLES-->
 		<link rel="stylesheet" href="/styles/bootstrap.min.css">
 		<link rel="stylesheet" href="/styles/main.css">
-		<!--STYLES END-->
 	</head>
 	<body>
 		<div class="jumbotron" id="header">
@@ -17,11 +15,11 @@
 					<h1><a href="/"><img src="/images/logo-sails.png" id="logo-sails"><img src="/images/logo-blog.png" id="logo-blog"></a></h1>
 					<p class="lead">A blog system written on the Sails.js framework, using MongoDB for document storage.</p>
 				</div>
-				<div id="breadcrumbs">
+				<ol class="breadcrumb" id="breadcrumbs">
 					<% breadcrumbs.forEach(function (breadcrumb, i) { %>
-					<a href="<%= breadcrumb.href %>"><%= breadcrumb.label %></a><%- i < breadcrumbs.length - 1 ? ' / ' : '' %>
+					<li><a href="<%= breadcrumb.href %>"><%= breadcrumb.label %></a></li>
 					<% }) %>
-				</div>
+				</ol>
 			</div>
 		</div>
 

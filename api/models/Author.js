@@ -19,6 +19,9 @@ module.exports = {
 			unique: true,
 			required: true
 		},
+		bio: {
+			type: 'text'
+		},
 		posts: {
 			collection: 'post',
 			via: 'author'

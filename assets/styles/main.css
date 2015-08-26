@@ -23,18 +23,19 @@ h1 img {
 
 #breadcrumbs {
 	margin-top: 30px;
+	margin-bottom: 0;
 	font-size: 125%;
 }
 
-#breadcrumbs > a {
+#breadcrumbs > li > a {
 	color: #0C8DA0;
 }
 
-#breadcrumbs > a:hover {
+#breadcrumbs > li > a:hover {
 	color: #14ACC2;
 }
 
-#breadcrumbs > a:last-child {
+#breadcrumbs > li:last-child > a {
 	font-weight: bold;
 }
 

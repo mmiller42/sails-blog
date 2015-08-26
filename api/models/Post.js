@@ -19,6 +19,7 @@ module.exports = {
 		},
 		slug: {
 			type: 'string',
+			regex: /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
 			unique: true
 		}
 	},

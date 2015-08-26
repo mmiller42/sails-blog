@@ -1,6 +1,7 @@
 'use strict';
 
 var truncate = require('htmlsave').truncate;
+var markdown = require('markdown').markdown;
 
 module.exports = {
 	posts: function (req, res) {
@@ -36,6 +37,7 @@ module.exports = {
 			Post.find({ author: post.author.id, id: { '!': [ post.id ] } }).sort('createdAt DESC').limit(5).exec(function (err, authorPosts) {
 				if (err) return res.negotiate(err);
 
+				post.body = markdown.toHTML(post.body);
 				post.author.posts = authorPosts;
 
 				res.view('post', {
@@ -106,7 +108,7 @@ function getPageOfPosts (page, criteria, done) {
 		posts: function (done) {
 			Post.find(criteria).sort('createdAt DESC').limit(5).skip((page - 1) * 5).populate('author').exec(function (err, posts) {
 				done(null, posts.map(function (post) {
-					post.body = truncate(post.body, 1000, { ellipsis: '…' });
+					post.body = truncate(markdown.toHTML(post.body), 1000, { ellipsis: '…' });
 					return post;
 				}));
 			});

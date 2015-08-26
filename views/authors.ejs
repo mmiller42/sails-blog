@@ -2,7 +2,7 @@
 	<div class="authors">
 		<% authors.forEach(function (author) { %>
 		<div class="author">
-			<h3><a href="/authors/<%= author.id %>"><%= author.displayName %></a></h3>
+			<h2><a href="/authors/<%= author.id %>"><%= author.displayName %></a></h2>
 			<div class="author-bio"><%- author.bio %></div>
 		</div>
 		<% }) %>

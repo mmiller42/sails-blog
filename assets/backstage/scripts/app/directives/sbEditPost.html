@@ -1,0 +1,51 @@
+<h2><span class="glyphicon glyphicon-edit"></span> {{!isNew ? 'Edit Post' : 'Create Post'}}</h2>
+<form class="form-horizontal" ng-submit="submit()">
+	<div class="form-group" ng-if="error && !error.byAttribute">
+		<div class="col-sm-offset-2 col-sm-10"><p class="error bg-danger"><span class="glyphicon glyphicon-remove text-danger"></span> {{error.summary}}</p></div>
+	</div>
+	<div class="form-group" ng-if="success">
+		<div class="col-sm-offset-2 col-sm-10"><p class="success bg-success"><span class="glyphicon glyphicon-ok text-success"></span> {{success}}</p></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Author</label>
+		<div class="col-sm-10">
+			<span class="form-control">{{author.displayName}}</span>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{ 'has-error': error.byAttribute.title }">
+		<label for="editPost_title" class="col-sm-2 control-label">Title</label>
+		<div class="col-sm-10">
+			<input type="text" ng-model="post.title" ng-readonly="!isOwner" ng-disabled="saving" required id="editPost_title" class="form-control">
+			<div ng-if="error.byAttribute.title" class="text-danger" ng-bind-html="error.byAttribute.title"></div>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{ 'has-error': error.byAttribute.slug }">
+		<label for="editPost_slug" class="col-sm-2 control-label">Slug</label>
+		<div class="col-sm-10">
+			<input type="text" ng-model="post.slug" ng-readonly="!isOwner" ng-disabled="saving" id="editPost_slug" placeholder="Leave blank to generate" class="form-control">
+			<small>Alphanumerics and dashes only.</small>
+			<div ng-if="error.byAttribute.slug" class="text-danger" ng-bind-html="error.byAttribute.slug"></div>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{ 'has-error': error.byAttribute.body }">
+		<label for="editPost_body" class="col-sm-2 control-label">Body</label>
+		<div class="col-sm-10">
+			<textarea ng-model="post.body" ng-readonly="!isOwner" ng-disabled="saving" required id="editPost_body" class="form-control"></textarea>
+			<div ng-if="error.byAttribute.body" class="text-danger" ng-bind-html="error.byAttribute.body"></div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button ng-if="isOwner" type="submit" ng-disabled="saving" class="btn btn-primary">Save</button>
+			<button type="button" ng-disabled="saving" class="btn btn-default" ng-click="cancel()">Back</button>
+			<div class="pull-right">
+				<button type="button" ng-if="isOwner && !isNew" ng-disabled="saving" class="btn btn-danger" ng-click="destroy()">Delete</button>
+			</div>
+		</div>
+	</div>
+</form>
+<hr>
+<div id="editPost_preview">
+	<h2>{{post.title}}</h2>
+	<div class="post" ng-bind-html="previewBody"></div>
+</div>

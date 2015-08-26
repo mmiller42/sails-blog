@@ -11,9 +11,9 @@ module.exports = {
 	},
 
 	findOne: function (req, res) {
-		Author.find(req.params.id).exec(function (err, user) {
+		Author.findOne(req.params.id).exec(function (err, author) {
 			if (err) return res.negotiate(err);
-			if (!user) return res.notFound();
+			if (!author) return res.notFound();
 
 			deleteSensitiveInfo(author, req.session.authorId);
 			res.ok(author);
