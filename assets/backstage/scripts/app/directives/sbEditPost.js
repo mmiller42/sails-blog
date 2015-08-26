@@ -54,6 +54,7 @@
 
 					scope.submit = function () {
 						scope.saving = true;
+						if (!scope.post.slug) delete scope.post.slug;
 						var promise;
 						if (!scope.isNew) {
 							promise = Post.update({ postId: $stateParams.postId }, scope.post).$promise;

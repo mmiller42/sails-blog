@@ -16,7 +16,9 @@ sb-post-table > table {
 }
 
 sb-post-table > table .created,
-sb-post-table > table .modified {
+sb-post-table > table .modified,
+sb-author-table > table .created,
+sb-author-table > table .modified {
 	width: 160px;
 }
 
@@ -30,7 +32,8 @@ sb-post-table > table .author {
 	}
 }
 
-sb-post-table > table tbody tr.mine:hover {
+sb-post-table > table tbody tr.mine:hover,
+sb-author-table > table tbody tr.mine:hover {
 	cursor: pointer;
 }
 

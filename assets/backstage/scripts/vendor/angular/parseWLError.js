@@ -21,6 +21,7 @@
 				uuid: 'Please enter a valid UUID.',
 				uuidv3: 'Please enter a valid UUID v3.',
 				uuidv4: 'Please enter a valid UUID v4.',
+				string: 'Please enter some text.',
 				int: 'Please enter an integer.',
 				integer: 'Please enter an integer.',
 				decimal: 'Please enter a decimal.',
