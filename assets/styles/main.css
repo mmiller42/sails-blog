@@ -51,13 +51,15 @@ h6:first-child {
 	margin-bottom: 40px;
 }
 
-.posts > .post {
+.posts > .post,
+.authors > .author {
 	padding-bottom: 20px;
 	border-bottom: 2px solid #EEEEEE;
 	margin-bottom: 20px;
 }
 
-.posts > .post:last-child {
+.posts > .post:last-child,
+.authors > .author:last-child {
 	padding-bottom: 0;
 	border-bottom: none;
 	margin-bottom: 0;

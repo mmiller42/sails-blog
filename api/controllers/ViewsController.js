@@ -56,6 +56,10 @@ module.exports = {
 		Author.find().sort('displayName ASC').exec(function (err, authors) {
 			if (err) return res.negotiate(err);
 
+			authors.forEach(function (author) {
+				author.bio = author.bio ? markdown.toHTML(author.bio) : '';
+			});
+
 			res.view('authors', {
 				breadcrumbs: [
 					{ href: '/', label: config.blogTitle },
@@ -79,6 +83,8 @@ module.exports = {
 		}, function (err, results) {
 			if (err) return res.negotiate(err);
 			if (!results.author) return res.notFound({ resource: 'author', id: req.params.id });
+
+			results.author.bio = results.author.bio ? markdown.toHTML(results.author.bio) : '';
 
 			res.view('author', {
 				breadcrumbs: [

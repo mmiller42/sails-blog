@@ -17,6 +17,8 @@
 </div>
 
 <div class="col-sm-3 col-sm-offset-1">
+	<% if (author.bio) { %>
 	<h4>About <%= author.displayName %></h4>
 	<div class="author-bio"><%- author.bio %></div>
+	<% } %>
 </div>

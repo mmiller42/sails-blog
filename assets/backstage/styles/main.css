@@ -94,6 +94,7 @@ sb-edit-post #editPost_preview > .post > :last-child {
 	margin-bottom: 0;
 }
 
-sb-edit-post #editPost_body {
+sb-edit-post #editPost_body,
+sb-edit-author #editAuthor_bio {
  	font-family: Monaco, Consolas, monospace;
 }
