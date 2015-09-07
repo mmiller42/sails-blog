@@ -12,7 +12,8 @@
 					var _originalAuthor = {
 						displayName: '',
 						email: '',
-						password: ''
+						password: '',
+						bio: ''
 					};
 
 					scope.isNew = !$stateParams.authorId;
