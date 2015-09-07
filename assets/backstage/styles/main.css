@@ -29,6 +29,11 @@ sb-author-table > table .modified {
 	width: 160px;
 }
 
+.action-menu {
+	float: right;
+	margin-top: 34px;
+}
+
 sb-post-table > table .author {
 	width: 240px;
 }
@@ -39,14 +44,24 @@ sb-post-table > table .author {
 	}
 }
 
-sb-post-table > table tbody tr.mine:hover,
-sb-author-table > table tbody tr.mine:hover {
+sb-post-table > table tbody tr:hover,
+sb-author-table > table tbody tr:hover {
 	cursor: pointer;
+}
+
+.table-striped > tbody > tr.info > th,
+.table-striped > tbody > tr.info > td {
+	background-color: #D9EDF7;
 }
 
 .table-striped > tbody > tr.info:nth-of-type(odd):not(:hover) > th,
 .table-striped > tbody > tr.info:nth-of-type(odd):not(:hover) > td {
 	background-color: #D3E7F1;
+}
+
+.table-striped > tbody > tr.info:hover > th,
+.table-striped > tbody > tr.info:hover > td {
+	background-color: #C4E3F3;
 }
 
 p.success,
