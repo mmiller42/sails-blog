@@ -2,11 +2,13 @@
 	'use strict';
 
 	angular.module('sailsBlog').directive('sbEditAuthor', [
-		'Author', 'getSession', '$state', '$stateParams', 'parseWLError',
-		function (Author, getSession, $state, $stateParams, parseWLError) {
+		'Author', 'getSession', '$state', 'parseWLError',
+		function (Author, getSession, $state, parseWLError) {
 			return {
 				restrict: 'E',
-				scope: {},
+				scope: {
+					authorId: '@'
+				},
 				templateUrl: '/backstage/scripts/app/directives/sbEditAuthor.html',
 				link: function (scope, element, attrs) {
 					var _originalAuthor = {
@@ -16,7 +18,7 @@
 						bio: ''
 					};
 
-					scope.isNew = !$stateParams.authorId;
+					scope.isNew = !scope.authorId;
 					scope.isSelf = false;
 					scope.saving = false;
 
@@ -33,7 +35,7 @@
 					});
 
 					if (!scope.isNew) {
-						scope.author = Author.get({ authorId: $stateParams.authorId });
+						scope.author = Author.get({ authorId: scope.authorId });
 						scope.author.$promise.then(function (author) {
 							_originalAuthor = author.toJSON();
 							_getSession.then(function () {
@@ -49,7 +51,7 @@
 						if (!scope.author.password) delete scope.author.password;
 						var promise;
 						if (!scope.isNew) {
-							promise = Author.update({ authorId: $stateParams.authorId }, scope.author).$promise;
+							promise = Author.update({ authorId: scope.authorId }, scope.author).$promise;
 						} else {
 							promise = Author.create(scope.author).$promise;
 						}
@@ -64,7 +66,7 @@
 									scope.isNew = false;
 									scope.isSelf = false;
 								}
-								$stateParams.authorId = author.id;
+								scope.authorId = author.id;
 							},
 							function (err) {
 								scope.success = null;
@@ -84,7 +86,7 @@
 
 					scope.destroy = function () {
 						if (confirm('Are you sure you want to delete `' + scope.author.displayName + '`?')) {
-							Post['delete']({ authorId: $stateParams.authorId }).$promise.then(function () {
+							Post['delete']({ authorId: scope.authorId }).$promise.then(function () {
 								$state.go('authors');
 							});
 						}

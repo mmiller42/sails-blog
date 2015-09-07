@@ -2,11 +2,13 @@
 	'use strict';
 
 	angular.module('sailsBlog').directive('sbEditPost', [
-		'Author', 'getSession', '$state', '$stateParams', 'Post', 'parseWLError',
-		function (Author, getSession, $state, $stateParams, Post, parseWLError) {
+		'Author', 'getSession', '$state', 'Post', 'parseWLError',
+		function (Author, getSession, $state, Post, parseWLError) {
 			return {
 				restrict: 'E',
-				scope: {},
+				scope: {
+					postId: '@'
+				},
 				templateUrl: '/backstage/scripts/app/directives/sbEditPost.html',
 				link: function (scope, element, attrs) {
 					var _originalPost = {
@@ -16,7 +18,7 @@
 						author: ''
 					};
 
-					scope.isNew = !$stateParams.postId;
+					scope.isNew = !scope.postId;
 					scope.author = null;
 					scope.isOwner = false;
 					scope.saving = false;
@@ -33,7 +35,7 @@
 					});
 
 					if (!scope.isNew) {
-						scope.post = Post.get({ postId: $stateParams.postId });
+						scope.post = Post.get({ postId: scope.postId });
 						scope.post.$promise.then(function (post) {
 							_originalPost = post.toJSON();
 							_getSession.then(function () {
@@ -57,7 +59,7 @@
 						if (!scope.post.slug) delete scope.post.slug;
 						var promise;
 						if (!scope.isNew) {
-							promise = Post.update({ postId: $stateParams.postId }, scope.post).$promise;
+							promise = Post.update({ postId: scope.postId }, scope.post).$promise;
 						} else {
 							promise = Post.create(scope.post).$promise;
 						}
@@ -69,7 +71,7 @@
 								resetUi();
 								scope.success = 'The post has been saved successfully!';
 								scope.isNew = false;
-								$stateParams.postId = post.id;
+								scope.postId = post.id;
 							},
 							function (err) {
 								scope.success = null;
@@ -89,7 +91,7 @@
 
 					scope.destroy = function () {
 						if (confirm('Are you sure you want to delete `' + scope.post.title + '`?')) {
-							Post['delete']({ postId: $stateParams.postId }).$promise.then(function () {
+							Post['delete']({ postId: scope.postId }).$promise.then(function () {
 								$state.go('posts');
 							});
 						}
