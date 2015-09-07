@@ -91,7 +91,7 @@ module.exports.views = {
 
   partials: false,
 
-  locals: {
+  locals: require('sails/node_modules/lodash').merge({
     moment: require('moment')
-  }
+  }, require('./sailsBlog'))
 };

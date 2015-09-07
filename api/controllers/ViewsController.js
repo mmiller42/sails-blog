@@ -19,7 +19,7 @@ module.exports = {
 
 			res.view('posts', {
 				breadcrumbs: [
-					{ href: '/', label: 'sails-blog' }
+					{ href: '/', label: config.blogTitle }
 				],
 				authors: results.authors,
 				posts: results.page.posts,
@@ -42,7 +42,7 @@ module.exports = {
 
 				res.view('post', {
 					breadcrumbs: [
-						{ href: '/', label: 'sails-blog' },
+						{ href: '/', label: config.blogTitle },
 						{ href: '/', label: 'Posts' },
 						{ href: '/posts/' + post.slug, label: post.title }
 					],
@@ -58,7 +58,7 @@ module.exports = {
 
 			res.view('authors', {
 				breadcrumbs: [
-					{ href: '/', label: 'sails-blog' },
+					{ href: '/', label: config.blogTitle },
 					{ href: '/authors', label: 'Authors' }
 				],
 				authors: authors
@@ -82,7 +82,7 @@ module.exports = {
 
 			res.view('author', {
 				breadcrumbs: [
-					{ href: '/', label: 'sails-blog' },
+					{ href: '/', label: config.blogTitle },
 					{ href: '/authors', label: 'Authors' },
 					{ href: '/authors/' + results.author.id, label: results.author.displayName }
 				],

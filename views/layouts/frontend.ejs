@@ -13,7 +13,7 @@
 			<div class="container">
 				<div>
 					<h1><a href="/"><img src="/images/logo-sails.png" id="logo-sails"><img src="/images/logo-blog.png" id="logo-blog"></a></h1>
-					<p class="lead">A blog system written on the Sails.js framework, using MongoDB for document storage.</p>
+					<p class="lead"><%- blogSubtitle %></p>
 				</div>
 				<ol class="breadcrumb" id="breadcrumbs">
 					<% breadcrumbs.forEach(function (breadcrumb, i) { %>
@@ -30,7 +30,7 @@
 		</div>
 
 		<div class="container" id="footer">
-			<p>powered by <a href="http://sailsjs.org/" target="_blank">Sails.js</a> and <a href="http://mongodb.org/" target="_blank">MongoDB</a>, written by <a href="http://mmiller.me/" target="_blank">Matt Miller</a></p>
+			<%- blogFooter %>
 		</div>
 	</body>
 </html>

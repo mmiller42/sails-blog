@@ -1,11 +1,18 @@
 body {
-	padding-top: 50px;
+	padding-top: 60px;
 	padding-bottom: 20px;
 }
 
 @media (max-width: 767px) {
 	body {
-		padding-top: 150px;
+		padding-top: 160px;
+	}
+}
+
+@media (min-width: 768px) {
+	.navbar-nav > li > a {
+		padding-top: 26.5px;
+		padding-bottom: 14.5px;
 	}
 }
 
@@ -47,12 +54,9 @@ p.error {
 	padding: 15px;
 }
 
-span.form-control {
-	border-color: transparent;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	background: transparent;
+.form-control-static {
+	padding: 4px 0;
+	font-size: 16px;
 }
 
 sb-edit-post #editPost_body {
@@ -73,4 +77,8 @@ sb-edit-post #editPost_preview > :first-child {
 
 sb-edit-post #editPost_preview > .post > :last-child {
 	margin-bottom: 0;
+}
+
+sb-edit-post #editPost_body {
+ 	font-family: Monaco, Consolas, monospace;
 }

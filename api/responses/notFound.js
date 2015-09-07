@@ -50,7 +50,7 @@ module.exports = function notFound (data, options) {
   options = (typeof options === 'string') ? { view: options } : options || {};
 
   var breadcrumbs = [
-    { href: '/', label: 'sails-blog' },
+    { href: '/', label: config.blogTitle },
     { href: '', label: '404 Not Found' }
   ];
 
