@@ -20,7 +20,7 @@
 	<h4>Authors</h4>
 	<ul class="list-unstyled">
 		<% authors.forEach(function (author) { %>
-		<li><a href="/authors/<%= author.id %>"><%= author.displayName %></a></li>
+		<li><a href="/authors/<%= author.slug %>"><%= author.displayName %></a></li>
 		<% }) %>
 	</ul>
 </div>

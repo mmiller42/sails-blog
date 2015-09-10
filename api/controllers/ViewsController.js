@@ -73,13 +73,14 @@ module.exports = {
 	author: function (req, res) {
 		var currentPage = parseInt(req.params.page) || 1;
 
-		async.parallel({
+		async.auto({
 			author: function (done) {
-				Author.findOne(req.params.id).exec(done);
+				Author.findOne({ slug: req.params.slug }).exec(done);
 			},
-			page: function (done) {
-				getPageOfPosts(currentPage, { author: req.params.id }, done);
-			}
+			page: [ 'author', function (done, results) {
+				if (!results.author) return done(null, []);
+				getPageOfPosts(currentPage, { author: results.author.id }, done);
+			} ]
 		}, function (err, results) {
 			if (err) return res.negotiate(err);
 			if (!results.author) return res.notFound({ resource: 'author', id: req.params.id });

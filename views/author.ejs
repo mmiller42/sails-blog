@@ -9,7 +9,7 @@
 	<div class="text-center">
 		<ul class="pagination">
 			<% 	for (var page = 1; page <= numberOfPages; ++page) { %>
-			<li<%- page === currentPage ? ' class="active"' : '' %>><a href="/authors/<%= author.id %>/page/<%= page %>"><%= page %></a></li>
+			<li<%- page === currentPage ? ' class="active"' : '' %>><a href="/authors/<%= author.slug %>/page/<%= page %>"><%= page %></a></li>
 			<% 	} %>
 		</ul>
 	</div>

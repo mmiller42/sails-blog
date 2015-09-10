@@ -2,7 +2,7 @@
 
 var bcrypt = require('bcrypt');
 
-module.exports = {
+module.exports = uniqueSlugGeneratorFactory('author', 'displayName', {
 	attributes: {
 		email: {
 			type: 'email',
@@ -39,7 +39,7 @@ module.exports = {
 	checkPassword: function (author, password, done) {
 		bcrypt.compare(password, author.password, done);
 	}
-};
+});
 
 function beforeSave (attributes, done) {
 	delete attributes.id;
