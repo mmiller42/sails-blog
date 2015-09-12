@@ -2,8 +2,8 @@
 	'use strict';
 
 	angular.module('sailsBlog').directive('sbEditPost', [
-		'Author', 'getSession', '$state', 'Post', 'parseWLError',
-		function (Author, getSession, $state, Post, parseWLError) {
+		'Author', 'Topic', 'getSession', '$state', 'Post', 'parseWLError', '$q',
+		function (Author, Topic, getSession, $state, Post, parseWLError, $q) {
 			return {
 				restrict: 'E',
 				scope: {
@@ -15,8 +15,19 @@
 						title: '',
 						slug: '',
 						body: '',
-						author: ''
+						author: '',
+						topics: []
 					};
+
+					scope.topics = Topic.query();
+					scope.$watchCollection('topics', function () {
+						if (scope.post.topics) {
+							var topicsById = _.indexBy(scope.topics, 'id');
+							scope.post.topics = scope.post.topics.filter(function (topic) {
+								return topic in topicsById;
+							});
+						}
+					});
 
 					scope.isNew = !scope.postId;
 					scope.author = null;
@@ -36,7 +47,12 @@
 
 					if (!scope.isNew) {
 						scope.post = Post.get({ postId: scope.postId });
-						scope.post.$promise.then(function (post) {
+						var _getTopics = Post.getTopics({ postId: scope.postId }).$promise;
+
+						$q.all({ post: scope.post.$promise, topics: _getTopics }).then(function (results) {
+							var post = results.post;
+							post.topics = results.topics.map(function (topic) { return topic.id; });
+
 							_originalPost = post.toJSON();
 							_getSession.then(function () {
 								scope.isOwner = scope.currentAuthor.id === post.author;
@@ -66,6 +82,7 @@
 
 						promise.then(
 							function (post) {
+								if (typeof post.author === 'object') post.author = post.author.id;
 								_originalPost = post.toJSON();
 								scope.saving = false;
 								resetUi();

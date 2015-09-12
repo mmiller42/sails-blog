@@ -56,8 +56,7 @@ module.exports.policies = {
 		populate: true,
 		create: [ 'removeId', 'isLoggedIn', 'isAuthor' ],
 		update: [ 'removeId', 'isLoggedIn', 'isAuthor' ],
-		destroy: [ 'isLoggedIn', 'isAuthor' ],
-		renderPosts: true
+		destroy: [ 'isLoggedIn', 'isAuthor' ]
 	},
 
 	AuthorController: {
@@ -72,5 +71,15 @@ module.exports.policies = {
 		logOut: true,
 		getCurrentAuthor: true,
 		updateCurrentAuthor: [ 'isLoggedIn' ]
+	},
+
+	TopicController: {
+		'*': false,
+		find: true,
+		findOne: true,
+		populate: true,
+		create: [ 'removeId', 'isLoggedIn' ],
+		update: [ 'removeId', 'isLoggedIn' ],
+		destroy: [ 'removeId', 'isLoggedIn' ]
 	}
 };

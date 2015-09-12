@@ -13,6 +13,11 @@ module.exports = uniqueSlugGeneratorFactory('post', 'title', {
 		author: {
 			model: 'author',
 			required: true
+		},
+		topics: {
+			collection: 'topic',
+			via: 'posts',
+			dominant: true
 		}
 	}
 });

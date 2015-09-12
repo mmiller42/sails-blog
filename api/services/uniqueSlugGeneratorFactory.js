@@ -17,20 +17,17 @@ module.exports = function uniqueSlugGeneratorFactory (model, slugifyAttribute, s
 			generateUniqueSlug.call({}, attributes, done);
 		} ],
 
-		beforeUpdate: [ function slugifyBeforeUpdate (attributes, done) {
+		beforeUpdate: function slugifyBeforeUpdate (attributes, criteria, done) {
 			var Model = sails.models[model];
-			// Only way to get the record we are editing is to pull the arguments
-			// out ouf the Model.update method and retrieve the object
-			var criteria = Model.update.arguments[0];
 			Model.findOne(criteria, function (err, record) {
 				if (err) return done(err);
 				if (!record) return done('Could not find ' + model + ' to update');
 
 				generateUniqueSlug.call(record, attributes, done);
 			});
-		} ]
+		}
 	}, function (a, b) {
-		if (Array.isArray(b)) return b.concat(a);
+		if (Array.isArray(b) && a) return b.concat(a);
 	});
 
 	function generateUniqueSlug (attributes, done) {
