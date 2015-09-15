@@ -19,16 +19,6 @@
 						topics: []
 					};
 
-					scope.topics = Topic.query();
-					scope.$watchCollection('topics', function () {
-						if (scope.post.topics) {
-							var topicsById = _.indexBy(scope.topics, 'id');
-							scope.post.topics = scope.post.topics.filter(function (topic) {
-								return topic in topicsById;
-							});
-						}
-					});
-
 					scope.isNew = !scope.postId;
 					scope.author = null;
 					scope.isOwner = false;
@@ -41,6 +31,20 @@
 					}
 					resetUi();
 
+					scope.refreshTopics = function () {
+						var postTopics = JSON.parse(JSON.stringify(scope.post.topics));
+						scope.topics = Topic.query();
+						scope.topics.$promise.then(function () {
+							if (postTopics) {
+								var topicsById = _.indexBy(scope.topics, 'id');
+								scope.post.topics = postTopics.filter(function (topicId) {
+									return topicId in topicsById;
+								});
+							}
+						});
+					};
+					scope.refreshTopics();
+
 					var _getSession = getSession().then(function (currentAuthor) {
 						scope.currentAuthor = currentAuthor;
 					});
@@ -51,7 +55,9 @@
 
 						$q.all({ post: scope.post.$promise, topics: _getTopics }).then(function (results) {
 							var post = results.post;
-							post.topics = results.topics.map(function (topic) { return topic.id; });
+							scope.topics.$promise.then(function () {
+								post.topics = results.topics.map(function (topic) { return topic.id; });
+							});
 
 							_originalPost = post.toJSON();
 							_getSession.then(function () {

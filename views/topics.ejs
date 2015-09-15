@@ -1,0 +1,9 @@
+<div class="col-sm-12">
+	<div class="authors">
+		<% topics.forEach(function (topic) { %>
+		<div class="author">
+			<h2><a href="/topics/<%= topic.slug %>"><%= topic.name %></a></h2>
+		</div>
+		<% }) %>
+	</div>
+</div>

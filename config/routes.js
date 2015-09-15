@@ -49,6 +49,9 @@ module.exports.routes = {
   '/authors': 'ViewsController.authors',
   '/authors/:slug': 'ViewsController.author',
   '/authors/:slug/page/:page': 'ViewsController.author',
+	'/topics': 'ViewsController.topics',
+	'/topics/:slug': 'ViewsController.topic',
+	'/topics/:slug/page/:page': 'ViewsController.topic',
 
   'POST /api/logIn': 'AuthorController.logIn',
   'POST /api/logOut': 'AuthorController.logOut',

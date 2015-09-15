@@ -1,4 +1,4 @@
-<div class="col-sm-8">
+<div class="col-sm-8" id="main-column">
 	<div class="posts">
 		<% posts.forEach(function (post) { %>
 		<%- 	partial('components/post.ejs', { post: post }) %>
@@ -9,7 +9,7 @@
 	<div class="text-center">
 		<ul class="pagination">
 			<% 	for (var page = 1; page <= numberOfPages; ++page) { %>
-			<li<%- page === currentPage ? ' class="active"' : '' %>><a href="/page/<%= page %>"><%= page %></a></li>
+			<li<%- page === currentPage ? ' class="active"' : '' %>><a href="/topics/<%= topic.slug %>/page/<%= page %>"><%= page %></a></li>
 			<% 	} %>
 		</ul>
 	</div>
@@ -19,15 +19,8 @@
 <div class="col-sm-3 col-sm-offset-1">
 	<h4>Topics</h4>
 	<ul class="list-unstyled">
-		<% topics.forEach(function (topic) { %>
-		<li><a href="/topics/<%= topic.slug %>"><%= topic.name %></a></li>
-		<% }) %>
-	</ul>
-
-	<h4>Authors</h4>
-	<ul class="list-unstyled">
-		<% authors.forEach(function (author) { %>
-		<li><a href="/authors/<%= author.slug %>"><%= author.displayName %></a></li>
+		<% topics.forEach(function (_topic) { %>
+		<li><a href="/topics/<%= _topic.slug %>"><%- _topic.id === topic.id ? '<b>' : '' %><%= _topic.name %><%- _topic.id === topic.id ? '</b>' : '' %></a></li>
 		<% }) %>
 	</ul>
 </div>

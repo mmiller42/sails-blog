@@ -16,6 +16,11 @@ body {
 	}
 }
 
+.action-menu {
+	float: right;
+	margin-top: 34px;
+}
+
 sb-post-table > table {
 	table-layout: fixed;
 	border-bottom: 2px solid #DDDDDD;
@@ -29,18 +34,18 @@ sb-author-table > table .modified {
 	width: 160px;
 }
 
-.action-menu {
-	float: right;
-	margin-top: 34px;
+sb-post-table > table .topics {
+	width: 200px;
 }
 
 sb-post-table > table .author {
-	width: 240px;
+	width: 140px;
 }
 
 @media (max-width: 991px) {
+	sb-post-table > table .topics,
 	sb-post-table > table .author {
-		width: 120px;
+		width: 100px;
 	}
 }
 
@@ -64,8 +69,8 @@ sb-author-table > table tbody tr:hover {
 	background-color: #C4E3F3;
 }
 
-p.success,
-p.error {
+.success,
+.error {
 	padding: 15px;
 }
 
@@ -97,4 +102,28 @@ sb-edit-post #editPost_preview > .post > :last-child {
 sb-edit-post #editPost_body,
 sb-edit-author #editAuthor_bio {
  	font-family: Monaco, Consolas, monospace;
+}
+
+sb-manage-topics table .actions {
+	width: 85px;
+	text-align: right;
+}
+
+sb-manage-topics .error p {
+	display: inline;
+}
+
+sb-manage-topics .error ul ul {
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+sb-manage-topics .error li {
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+sb-manage-topics .error ul ul li {
+	font-weight: normal;
+	text-transform: none;
 }

@@ -13,6 +13,9 @@ module.exports = {
 			},
 			authors: function (done) {
 				Author.find().sort('displayName ASC').exec(done);
+			},
+			topics: function (done) {
+				Topic.find().sort('name ASC').exec(done);
 			}
 		}, function (err, results) {
 			if (err) return res.negotiate(err);
@@ -23,6 +26,7 @@ module.exports = {
 				],
 				authors: results.authors,
 				posts: results.page.posts,
+				topics: results.topics,
 				numberOfPages: results.page.numberOfPages,
 				currentPage: results.page.currentPage
 			});
@@ -30,7 +34,7 @@ module.exports = {
 	},
 
 	post: function (req, res) {
-		Post.findOne({ slug: req.params.slug }).populate('author').exec(function (err, post) {
+		Post.findOne({ slug: req.params.slug }).populate('author').populate('topics').exec(function (err, post) {
 			if (err) return res.negotiate(err);
 			if (!post) return res.notFound({ resource: 'post', slug: req.params.slug });
 
@@ -83,7 +87,7 @@ module.exports = {
 			} ]
 		}, function (err, results) {
 			if (err) return res.negotiate(err);
-			if (!results.author) return res.notFound({ resource: 'author', id: req.params.id });
+			if (!results.author) return res.notFound({ resource: 'author', slug: req.params.slug });
 
 			results.author.bio = results.author.bio ? markdown.toHTML(results.author.bio) : '';
 
@@ -91,9 +95,56 @@ module.exports = {
 				breadcrumbs: [
 					{ href: '/', label: config.blogTitle },
 					{ href: '/authors', label: 'Authors' },
-					{ href: '/authors/' + results.author.id, label: results.author.displayName }
+					{ href: '/authors/' + results.author.slug, label: results.author.displayName }
 				],
 				author: results.author,
+				posts: results.page.posts,
+				numberOfPages: results.page.numberOfPages,
+				currentPage: results.page.currentPage
+			});
+		});
+	},
+
+	topics: function (req, res) {
+		Topic.find({}).sort('name ASC').exec(function (err, topics) {
+			if (err) return res.negotiate(err);
+
+			res.view('topics', {
+				breadcrumbs: [
+					{ href: '/', label: config.blogTitle },
+					{ href: '/topics', label: 'Topics' }
+				],
+				topics: topics
+			});
+		});
+	},
+
+	topic: function (req, res) {
+		var currentPage = parseInt(req.params.page) || 1;
+
+		async.auto({
+			topic: function (done) {
+				Topic.findOne({ slug: req.params.slug }).populate('posts').exec(done);
+			},
+			topics: function (done) {
+				Topic.find({}).sort('name ASC').exec(done);
+			},
+			page: [ 'topic', function (done, results) {
+				if (!results.topic) return done(null, []);
+				getPageOfPosts(currentPage, { id: results.topic.posts.map(function (post) { return post.id; }) }, done);
+			} ]
+		}, function (err, results) {
+			if (err) return res.negotiate(err);
+			if (!results.topic) return res.notFound({ resource: 'topic', slug: req.params.slug });
+
+			res.view('topic', {
+				breadcrumbs: [
+					{ href: '/', label: config.blogTitle },
+					{ href: '/topics', label: 'Topics' },
+					{ href: '/topics/' + results.topic.slug, label: results.topic.name }
+				],
+				topic: results.topic,
+				topics: results.topics,
 				posts: results.page.posts,
 				numberOfPages: results.page.numberOfPages,
 				currentPage: results.page.currentPage
@@ -113,7 +164,7 @@ function getPageOfPosts (page, criteria, done) {
 			Post.count(criteria).exec(done);
 		},
 		posts: function (done) {
-			Post.find(criteria).sort('createdAt DESC').limit(5).skip((page - 1) * 5).populate('author').exec(function (err, posts) {
+			Post.find(criteria).sort('createdAt DESC').limit(5).skip((page - 1) * 5).populate('author').populate('topics').exec(function (err, posts) {
 				done(null, posts.map(function (post) {
 					post.body = truncate(markdown.toHTML(post.body), 1000, { ellipsis: '…' });
 					return post;

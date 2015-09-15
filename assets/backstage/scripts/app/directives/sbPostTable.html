@@ -6,6 +6,7 @@
 			<th class="created">Created</th>
 			<th class="modified">Modified</th>
 			<th class="title">Title</th>
+			<th class="topics">Topics</th>
 			<th class="author">Author</th>
 		</tr>
 	</thead>
@@ -14,6 +15,7 @@
 			<td class="created">{{post.createdAt | date:'MM/dd/yyyy hh:mma'}}</td>
 			<td class="modified">{{post.updatedAt | date:'MM/dd/yyyy hh:mma'}}</td>
 			<td class="title">{{post.title}}</td>
+			<td class="topics">{{topicNames[post.id] ? topicNames[post.id].join(', ') : ''}}</td>
 			<td class="author">{{authors[post.author].displayName}}</td>
 		</tr>
 	</tbody>

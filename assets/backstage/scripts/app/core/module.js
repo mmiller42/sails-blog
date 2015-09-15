@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('sailsBlog', [ 'ui.router', 'ngResource', 'ngSanitize', 'parseWLError' ])
+	angular.module('sailsBlog', [ 'ui.router', 'ngResource', 'ngSanitize', 'parseWLError', 'inputShortcuts' ])
 		.run([
 			'$rootScope', '$state', '$stateParams',
 			function ($rootScope, $state, $stateParams) {

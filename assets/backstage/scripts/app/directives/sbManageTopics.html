@@ -1,0 +1,52 @@
+<div class="modal" style="display: block;" ng-if="state.open">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="close()">&times;</button>
+				<h4 class="modal-title">Manage Topics</h4>
+			</div>
+			<div class="modal-body">
+				<p ng-if="error" class="error bg-danger"><span class="glyphicon glyphicon-remove text-danger"></span> <span ng-bind-html="error.summary"></span></p>
+				<table class="table table-striped table-responsive table-hover">
+					<thead>
+						<tr>
+							<th class="name">Name</th>
+							<th class="slug">Slug</th>
+							<th class="actions"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="topic in topics">
+							<td class="name" ng-class="{ 'has-error': error.byAttribute.name }">
+								<p class="form-control-static" ng-if="editing.id !== topic.id">{{topic.name}}</p>
+								<input ng-if="editing.id === topic.id" type="text" class="form-control" ng-model="editing.name" input-shortcuts on-enter="save()" on-esc="cancelEdit()">
+							</td>
+							<td class="slug" ng-class="{ 'has-error': error.byAttribute.slug }">
+								<p class="form-control-static" ng-if="editing.id !== topic.id">{{topic.slug}}</p>
+								<input ng-if="editing.id === topic.id" type="text" class="form-control" ng-model="editing.slug" input-shortcuts on-enter="save()" on-esc="cancelEdit()">
+							</td>
+							<td class="actions">
+								<button ng-if="!editing" type="button" class="btn btn-sm btn-link" ng-click="edit(topic)" title="Edit"><span class="glyphicon glyphicon-pencil text-info"></span></button>
+								<button ng-if="!editing" type="button" class="btn btn-sm btn-link" ng-click="destroy(topic)" title="Delete"><span class="glyphicon glyphicon-minus-sign text-danger"></span></button>
+								<button ng-if="editing.id === topic.id" type="button" class="btn btn-sm btn-link" ng-click="save()" title="Edit"><span class="glyphicon glyphicon-floppy-disk text-primary"></span></button>
+								<button ng-if="editing.id === topic.id" type="button" class="btn btn-sm btn-link" ng-click="cancelEdit()" title="Cancel"><span class="glyphicon glyphicon-remove text-muted"></span></button>
+							</td>
+						</tr>
+						<tr ng-if="!editing">
+							<td class="name" ng-class="{ 'has-error': error.byAttribute.name }">
+								<input type="text" class="form-control" ng-model="creating.name" input-shortcuts on-enter="create()">
+							</td>
+							<td class="slug" ng-class="{ 'has-error': error.byAttribute.slug }">
+								<input type="text" class="form-control" ng-model="creating.slug" placeholder="Leave blank to generate" input-shortcuts on-enter="create()">
+							</td>
+							<td class="actions">
+								<button type="button" class="btn btn-sm btn-link" ng-click="create()" title="Create"><span class="glyphicon glyphicon-plus text-success"></span></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-backdrop in" ng-if="state.open"></div>
