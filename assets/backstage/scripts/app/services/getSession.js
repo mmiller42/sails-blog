@@ -33,6 +33,16 @@
 				_cachedPromise = null;
 			};
 
+			getSession.endSession = function () {
+				return Author.logOut().$promise.then(
+					function () {
+						getSession.clearCache();
+					},
+					function (err) {
+						if (window.console) console.error(err);
+					});
+			};
+
 			return getSession;
 		}
 	]);

@@ -56,17 +56,17 @@ sb-author-table > table tbody tr:hover {
 
 .table-striped > tbody > tr.info > th,
 .table-striped > tbody > tr.info > td {
-	background-color: #D9EDF7;
+	background-color: #C7E5FC;
 }
 
 .table-striped > tbody > tr.info:nth-of-type(odd):not(:hover) > th,
 .table-striped > tbody > tr.info:nth-of-type(odd):not(:hover) > td {
-	background-color: #D3E7F1;
+	background-color: #ACD8FA;
 }
 
 .table-striped > tbody > tr.info:hover > th,
 .table-striped > tbody > tr.info:hover > td {
-	background-color: #C4E3F3;
+	background-color: #91CEFF;
 }
 
 .success,
