@@ -10,6 +10,9 @@
  *
  */
 
+var sessionAdapter = require('redis-url').parse(process.env.REDISTOGO_URL);
+sessionAdapter.adapter = 'redis';
+
 module.exports = {
 
   /***************************************************************************
@@ -47,9 +50,6 @@ module.exports = {
 		url: process.env.REDISTOGO_URL
 	},
 
-	session: {
-		adapter: 'redis',
-		url: process.env.REDISTOGO_URL
-	}
+	session: sessionAdapter
 
 };
