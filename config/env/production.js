@@ -40,6 +40,16 @@ module.exports = {
 			adapter: 'sails-mongo',
 			url: process.env.MONGOLAB_URI
 		}
+	},
+
+	sockets: {
+		adapter: 'redis',
+		url: process.env.REDISTOGO_URL
+	},
+
+	session: {
+		adapter: 'redis',
+		url: process.env.REDISTOGO_URL
 	}
 
 };
