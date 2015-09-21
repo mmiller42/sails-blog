@@ -43,7 +43,7 @@ module.exports = {
 	},
 
 	sockets: {
-		adapter: 'redis',
+		adapter: 'socket.io-redis',
 		url: process.env.REDISTOGO_URL
 	},
 
