@@ -10,11 +10,12 @@
  *
  */
 
-var sessionAdapter = require('redis-url').parse(process.env.REDISTOGO_URL);
-sessionAdapter.adapter = 'redis';
-
-var socketAdapter = require('redis-url').parse(process.env.REDISTOGO_URL);
-socketAdpater.adapter = 'socket.io-redis';
+var _ = require('lodash');
+var _configTranslation = { hostname: 'host', port: 'port', password: 'pass', database: 'db' };
+var redisSettings = _.mapKeys(require('redis-url').parse(process.env.REDISTOGO_URL), function (value, key) {
+	return _configTranslation[key] || '';
+});
+delete redisSettings[''];
 
 module.exports = {
 
@@ -48,8 +49,15 @@ module.exports = {
 		}
 	},
 
-	sockets: socketAdapter,
+	sockets: _.merge({}, redisSettings, {
+		adapter: 'socket.io-redis',
+		host: redisSettings.host.split(':')[0]
+	}),
 
-	session: sessionAdapter
+	session: _.merge({}, redisSettings, {
+		adapter: 'redis',
+		secret: '65a3f66a85520495afa9456a890ef441',
+		host: redisSettings.host.split(':')[0]
+	})
 
 };
