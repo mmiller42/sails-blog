@@ -17,7 +17,7 @@ module.exports = function uniqueSlugGeneratorFactory (model, slugifyAttribute, s
 			generateUniqueSlug.call({}, attributes, done);
 		} ],
 
-		beforeUpdate: function slugifyBeforeUpdate (attributes, criteria, done) {
+		beforeUpdate: [ function slugifyBeforeUpdate (attributes, criteria, done) {
 			var Model = sails.models[model];
 			Model.findOne(criteria, function (err, record) {
 				if (err) return done(err);
@@ -25,7 +25,7 @@ module.exports = function uniqueSlugGeneratorFactory (model, slugifyAttribute, s
 
 				generateUniqueSlug.call(record, attributes, done);
 			});
-		}
+		} ]
 	}, function (a, b) {
 		if (Array.isArray(b) && a) return b.concat(a);
 	});
