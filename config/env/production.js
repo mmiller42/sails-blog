@@ -35,4 +35,11 @@ module.exports = {
   //   level: "silent"
   // }
 
+	connections: {
+		'sails-blog': {
+			adapter: 'sails-mongo',
+			url: process.env.MONGOLAB_URI
+		}
+	}
+
 };

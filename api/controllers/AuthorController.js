@@ -32,6 +32,7 @@ module.exports = {
 				if (!passed) return res.badRequest({ message: 'The password is incorrect.' });
 
 				req.session.authorId = author.id;
+				if (config.adminAuthorId === author.id) author.isAdminAuthor = true;
 				res.ok(author);
 			});
 		});
@@ -45,7 +46,8 @@ module.exports = {
 	getCurrentAuthor: function (req, res) {
 		getCurrentAuthor(req.session, function (err, author) {
 			if (err) return res.negotiate(err);
-
+console.log(author && author.id + '\n' + config.adminAuthorId);
+			if (author && config.adminAuthorId === author.id) author.isAdminAuthor = true;
 			res.ok(author);
 		});
 	},

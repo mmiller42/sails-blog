@@ -37,7 +37,7 @@
 	<div class="form-group" ng-class="{ 'has-error': error.byAttribute.topics }">
 		<label for="editPost_topics" class="col-sm-2 control-label">Topics</label>
 		<div class="col-sm-10">
-			<select multiple ng-multiple="true" ng-readonly="!isOwner" ng-disabled="saving" id="editPost_topics" ng-model="post.topics" ng-options="topic.id as topic.name for topic in topics" class="form-control"></select>
+			<select multiple ng-multiple="true" ng-disabled="saving || !isOwner" id="editPost_topics" ng-model="post.topics" ng-options="topic.id as topic.name for topic in topics" class="form-control"></select>
 			<span class="help-block"><button type="button" ng-disabled="saving" class="btn btn-link" ng-init="manageTopics = { open: false }" ng-click="manageTopics.open = true">Manage Topics…</button></span>
 		</div>
 	</div>

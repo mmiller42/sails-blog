@@ -39,7 +39,7 @@
 						scope.author.$promise.then(function (author) {
 							_originalAuthor = author.toJSON();
 							_getSession.then(function () {
-								scope.isSelf = scope.currentAuthor.id === author.id;
+								scope.isSelf = scope.currentAuthor.id === author.id || scope.currentAuthor.isAdminAuthor;
 							});
 						});
 					} else {

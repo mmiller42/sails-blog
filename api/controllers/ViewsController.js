@@ -38,7 +38,7 @@ module.exports = {
 			if (err) return res.negotiate(err);
 			if (!post) return res.notFound({ resource: 'post', slug: req.params.slug });
 
-			Post.find({ author: post.author.id, id: { '!': [ post.id ] } }).sort('createdAt DESC').limit(5).exec(function (err, authorPosts) {
+			Post.find({ author: post.author.id, id: { '!': [ post.id ] } }).sort('createdAt DESC').limit(config.relatedPostCount).exec(function (err, authorPosts) {
 				if (err) return res.negotiate(err);
 
 				post.body = markdown.toHTML(post.body);
@@ -164,7 +164,7 @@ function getPageOfPosts (page, criteria, done) {
 			Post.count(criteria).exec(done);
 		},
 		posts: function (done) {
-			Post.find(criteria).sort('createdAt DESC').limit(5).skip((page - 1) * 5).populate('author').populate('topics').exec(function (err, posts) {
+			Post.find(criteria).sort('createdAt DESC').limit(config.perPageCount).skip((page - 1) * config.perPageCount).populate('author').populate('topics').exec(function (err, posts) {
 				done(null, posts.map(function (post) {
 					post.body = truncate(markdown.toHTML(post.body), 1000, { ellipsis: '…' });
 					return post;
@@ -176,7 +176,7 @@ function getPageOfPosts (page, criteria, done) {
 
 		done(null, {
 			posts: results.posts,
-			numberOfPages: Math.ceil(results.postCount / 5),
+			numberOfPages: Math.ceil(results.postCount / config.perPageCount),
 			currentPage: page
 		});
 	});

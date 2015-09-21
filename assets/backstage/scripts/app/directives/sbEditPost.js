@@ -61,7 +61,7 @@
 
 							_originalPost = post.toJSON();
 							_getSession.then(function () {
-								scope.isOwner = scope.currentAuthor.id === post.author;
+								scope.isOwner = scope.currentAuthor.id === post.author || scope.currentAuthor.isAdminAuthor;
 							});
 
 							Author.get({ authorId: post.author }).$promise.then(function (author) {
@@ -106,7 +106,7 @@
 
 					scope.cancel = function () {
 						var pristinePost = _.omit(scope.post, function (val, key) { return _.startsWith(key, '$') || key === 'toJSON'; });
-						if (_.isEqual(pristinePost, _originalPost) || confirm('Are you sure you want to discard your unsaved changes?')) {
+						if ((!scope.isOwner || _.isEqual(pristinePost, _originalPost)) || confirm('Are you sure you want to discard your unsaved changes?')) {
 							resetUi();
 							$state.go('posts');
 						}
