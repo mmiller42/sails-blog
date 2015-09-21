@@ -46,7 +46,6 @@ module.exports = {
 	getCurrentAuthor: function (req, res) {
 		getCurrentAuthor(req.session, function (err, author) {
 			if (err) return res.negotiate(err);
-console.log(author && author.id + '\n' + config.adminAuthorId);
 			if (author && config.adminAuthorId === author.id) author.isAdminAuthor = true;
 			res.ok(author);
 		});
