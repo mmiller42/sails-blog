@@ -58,6 +58,10 @@ module.exports = {
 		adapter: 'redis',
 		secret: '65a3f66a85520495afa9456a890ef441',
 		host: redisSettings.host.split(':')[0]
-	})
+	}),
+
+	log: {
+		level: 'silly'
+	}
 
 };
