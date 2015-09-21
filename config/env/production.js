@@ -48,7 +48,7 @@ module.exports = {
 	},
 
 	session: {
-		adapter: 'sails-redis',
+		adapter: 'redis',
 		url: process.env.REDISTOGO_URL
 	}
 
