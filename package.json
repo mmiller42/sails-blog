@@ -31,6 +31,7 @@
     "sails": "0.11.0",
     "sails-disk": "~0.10.0",
     "sails-mongo": "^0.11.4",
+    "sails-redis": "^0.10.5",
     "slug": "^0.9.1"
   },
   "scripts": {
