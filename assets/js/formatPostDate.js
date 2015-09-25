@@ -2,21 +2,25 @@
 	'use strict';
 
 	try {
-		Array.prototype.slice.call(document.querySelectorAll('[data-time]')).forEach(function (e) {
+		var elements = document.querySelectorAll('[data-time]');
+		for (var i = 0, l = elements.length; i < l; ++i) {
+			var e = elements[i];
 			try {
-				var date = new Date(e.getAttribute('data-time'));
-				e.innerHTML = moment(date).format('MMMM Do, YYYY, hh:mma');
+				var date = new Date(parseInt(e.getAttribute('data-time'), 10));
+				if (!isNaN(date.getTime())) {
+					e.innerHTML = moment(date).format('MMMM Do, YYYY, hh:mma');
+				} else {
+					date.toISOString();
+				}
 			} catch (err) {
 				log(err);
 			}
-		});
+		}
 	} catch (err) {
 		log(err);
 	}
 
 	function log (err) {
-		if (window.console) {
-			console.error('Could not format dates because', err);
-		}
+		if (window.console) console.error('Could not format dates because', err);
 	}
 })();
