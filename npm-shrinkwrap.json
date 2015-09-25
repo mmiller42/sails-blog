@@ -48,6 +48,76 @@
       "from": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/ejs/-/ejs-0.8.8.tgz",
       "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/ejs/-/ejs-0.8.8.tgz"
     },
+    "express-force-ssl": {
+      "version": "0.3.0",
+      "from": "express-force-ssl@*",
+      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/express-force-ssl/-/express-force-ssl-0.3.0.tgz",
+      "dependencies": {
+        "lodash.assign": {
+          "version": "3.2.0",
+          "from": "lodash.assign@>=3.2.0 <4.0.0",
+          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash.assign/-/lodash.assign-3.2.0.tgz",
+          "dependencies": {
+            "lodash._baseassign": {
+              "version": "3.2.0",
+              "from": "lodash._baseassign@>=3.0.0 <4.0.0",
+              "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz",
+              "dependencies": {
+                "lodash._basecopy": {
+                  "version": "3.0.1",
+                  "from": "lodash._basecopy@>=3.0.0 <4.0.0",
+                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash._basecopy/-/lodash._basecopy-3.0.1.tgz"
+                }
+              }
+            },
+            "lodash._createassigner": {
+              "version": "3.1.1",
+              "from": "lodash._createassigner@>=3.0.0 <4.0.0",
+              "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash._createassigner/-/lodash._createassigner-3.1.1.tgz",
+              "dependencies": {
+                "lodash._bindcallback": {
+                  "version": "3.0.1",
+                  "from": "lodash._bindcallback@>=3.0.0 <4.0.0",
+                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz"
+                },
+                "lodash._isiterateecall": {
+                  "version": "3.0.9",
+                  "from": "lodash._isiterateecall@>=3.0.0 <4.0.0",
+                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash._isiterateecall/-/lodash._isiterateecall-3.0.9.tgz"
+                },
+                "lodash.restparam": {
+                  "version": "3.6.1",
+                  "from": "lodash.restparam@>=3.0.0 <4.0.0",
+                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash.restparam/-/lodash.restparam-3.6.1.tgz"
+                }
+              }
+            },
+            "lodash.keys": {
+              "version": "3.1.2",
+              "from": "lodash.keys@>=3.0.0 <4.0.0",
+              "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash.keys/-/lodash.keys-3.1.2.tgz",
+              "dependencies": {
+                "lodash._getnative": {
+                  "version": "3.9.1",
+                  "from": "lodash._getnative@>=3.0.0 <4.0.0",
+                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash._getnative/-/lodash._getnative-3.9.1.tgz"
+                },
+                "lodash.isarguments": {
+                  "version": "3.0.4",
+                  "from": "lodash.isarguments@>=3.0.0 <4.0.0",
+                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash.isarguments/-/lodash.isarguments-3.0.4.tgz"
+                },
+                "lodash.isarray": {
+                  "version": "3.0.4",
+                  "from": "lodash.isarray@>=3.0.0 <4.0.0",
+                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash.isarray/-/lodash.isarray-3.0.4.tgz"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "grunt": {
       "version": "0.4.2",
       "from": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt/-/grunt-0.4.2.tgz",
