@@ -34,6 +34,7 @@ module.exports.http = {
 
      order: [
        'startRequestTimer',
+			 'https',
        'cookieParser',
        'session',
        'myRequestLogger',
@@ -51,6 +52,7 @@ module.exports.http = {
      ],
 
 		 https: function (req, res, next) {
+			 sails.log.verbose('Forcing SSL: ' + sails.config.environment + ' === "production"');
 			 if (sails.config.environment === 'production') {
 				 forceSsl(req, res, next);
 			 } else {
