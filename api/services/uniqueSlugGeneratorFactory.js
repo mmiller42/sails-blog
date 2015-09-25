@@ -1,7 +1,7 @@
 'use strict';
 
 var slugify = require('slug');
-slugify.defaults.mode = 'rfc3986';
+slugify.defaults.mode = 'pretty';
 
 module.exports = function uniqueSlugGeneratorFactory (model, slugifyAttribute, schema) {
 	return _.merge(schema, {
@@ -36,7 +36,7 @@ module.exports = function uniqueSlugGeneratorFactory (model, slugifyAttribute, s
 		var id = this.id;
 		if (attributes.slug || !attributes[slugifyAttribute]) return done();
 
-		var slug = this.slug || slugify(attributes[slugifyAttribute]);
+		var slug = this.slug || slugify(attributes[slugifyAttribute], { lower: true });
 		Model.find({ slug: { startsWith: slug } }).exec(function (err, records) {
 			if (err) return done(err);
 
