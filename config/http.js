@@ -53,7 +53,7 @@ module.exports.http = {
 
 		 https: function (req, res, next) {
 			 sails.log.verbose('Forcing SSL: ' + sails.config.environment + ' === "production"');
-			 sails.log(req.protocol,req.hostname);
+			 sails.log(req);
 			 if (sails.config.environment === 'production') {
 				 forceSsl(req, res, next);
 			 } else {
