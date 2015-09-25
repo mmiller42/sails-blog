@@ -54,9 +54,15 @@ module.exports.http = {
 		 https: function (req, res, next) {
 			 sails.log.verbose('Forcing SSL: ' + sails.config.environment + ' === "production"');
 			 sails.log(req);
-			 if (sails.config.environment === 'production') {
-				 forceSsl(req, res, next);
-			 } else {
+			 try {
+				 var cfVisitor = JSON.parse(req.headers['cf-visitor']);
+				 if (sails.config.environment === 'production' && cfVisitor.scheme !== 'https') {
+					 forceSsl(req, res, next);
+				 } else {
+					 next();
+				 }
+			 } catch (x) {
+				 sails.log.warn('Could not parse cf-visitor header', x);
 				 next();
 			 }
 		 },
