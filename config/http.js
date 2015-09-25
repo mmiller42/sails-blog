@@ -9,6 +9,8 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.http.html
  */
 
+var forceSsl = require('express-force-ssl');
+
 module.exports.http = {
 
   /****************************************************************************
@@ -21,7 +23,7 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
-  // middleware: {
+   middleware: {
 
   /***************************************************************************
   *                                                                          *
@@ -30,23 +32,40 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
-    //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+     order: [
+       'startRequestTimer',
+			 'https',
+       'cookieParser',
+       'session',
+       'myRequestLogger',
+       'bodyParser',
+       'handleBodyParserError',
+       'compress',
+       'methodOverride',
+       'poweredBy',
+       '$custom',
+       'router',
+       'www',
+       'favicon',
+       '404',
+       '500'
+     ],
+
+		 https: function (req, res, next) {
+			 sails.log.verbose('Forcing SSL: ' + sails.config.environment + ' === "production"');
+			 sails.log(req);
+			 try {
+				 var cfVisitor = JSON.parse(req.headers['cf-visitor']);
+				 if (sails.config.environment === 'production' && cfVisitor.scheme !== 'https') {
+					 forceSsl(req, res, next);
+				 } else {
+					 next();
+				 }
+			 } catch (x) {
+				 sails.log.warn('Could not parse cf-visitor header', x);
+				 next();
+			 }
+		 },
 
   /****************************************************************************
   *                                                                           *
@@ -71,7 +90,7 @@ module.exports.http = {
 
     // bodyParser: require('skipper')
 
-  // },
+  }
 
   /***************************************************************************
   *                                                                          *

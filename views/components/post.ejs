@@ -1,7 +1,7 @@
 <div class="post">
 	<h2><a href="/posts/<%= post.slug %>"><%= post.title %></a></h2>
 	<p class="meta">
-		<%= moment(post.createdAt).format('MMMM Do, YYYY, hh:mma') %> UTC
+		<span data-time="<%= post.createdAt.getTime() %>">"<%= moment(post.createdAt).format('MMMM Do, YYYY, hh:mma') %> UTC</span>
 		by <a href="/authors/<%= post.author.slug %>"><%= post.author.displayName %></a>
 		<% if (post.topics && post.topics.length) { %>
 		in
