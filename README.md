@@ -11,19 +11,21 @@ This is a demonstrative example of a web application built using the Sails.js fr
 1. Create a MongoDB database for your blog (e.g. `sails-blog`).
 1. Create a file called `local.js` in the `config/` directory:
 
-	'use strict';
-	module.exports = {
-		connections: {
-		'sails-blog': {
-			adapter: 'sails-mongo',
-			host: 'localhost', // Host if remote connection
-			port: 27017, // Port if not default
-			// Uncomment these and add values if you need to authenticate to MongoDB
-			// user: '',
-			// password: '',
-			database: 'sails-blog' // The name of your database
-		}
-	};
+```js
+'use strict';
+module.exports = {
+	connections: {
+	'sails-blog': {
+		adapter: 'sails-mongo',
+		host: 'localhost', // Host if remote connection
+		port: 27017, // Port if not default
+		// Uncomment these and add values if you need to authenticate to MongoDB
+		// user: '',
+		// password: '',
+		database: 'sails-blog' // The name of your database
+	}
+};
+```
 
 1. You will need to create an initial author. Run `sails console`.
 1. Enter `Author.create({ email: 'your@email.com', password: 'yourPassword', displayName: 'Your Name' }).exec(sails.log);` (with your information)
