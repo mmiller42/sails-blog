@@ -5,7 +5,7 @@
     "bcrypt": {
       "version": "0.8.5",
       "from": "bcrypt@>=0.8.4 <0.9.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/bcrypt/-/bcrypt-0.8.5.tgz",
+      "resolved": "https://registry.npmjs.org/bcrypt/-/bcrypt-0.8.5.tgz",
       "dependencies": {
         "bindings": {
           "version": "1.2.1",
@@ -46,12 +46,12 @@
     "ejs": {
       "version": "0.8.8",
       "from": "ejs@>=0.8.4 <0.9.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/ejs/-/ejs-0.8.8.tgz"
+      "resolved": "https://registry.npmjs.org/ejs/-/ejs-0.8.8.tgz"
     },
     "express-force-ssl": {
       "version": "0.3.0",
       "from": "express-force-ssl@>=0.3.0 <0.4.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/express-force-ssl/-/express-force-ssl-0.3.0.tgz",
+      "resolved": "https://registry.npmjs.org/express-force-ssl/-/express-force-ssl-0.3.0.tgz",
       "dependencies": {
         "lodash.assign": {
           "version": "3.2.0",
@@ -316,7 +316,7 @@
     "grunt-contrib-clean": {
       "version": "0.5.0",
       "from": "grunt-contrib-clean@>=0.5.0 <0.6.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-clean/-/grunt-contrib-clean-0.5.0.tgz",
+      "resolved": "https://registry.npmjs.org/grunt-contrib-clean/-/grunt-contrib-clean-0.5.0.tgz",
       "dependencies": {
         "rimraf": {
           "version": "2.2.8",
@@ -328,7 +328,7 @@
     "grunt-contrib-coffee": {
       "version": "0.10.1",
       "from": "grunt-contrib-coffee@>=0.10.1 <0.11.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-coffee/-/grunt-contrib-coffee-0.10.1.tgz",
+      "resolved": "https://registry.npmjs.org/grunt-contrib-coffee/-/grunt-contrib-coffee-0.10.1.tgz",
       "dependencies": {
         "coffee-script": {
           "version": "1.7.1",
@@ -374,17 +374,17 @@
     "grunt-contrib-concat": {
       "version": "0.3.0",
       "from": "grunt-contrib-concat@>=0.3.0 <0.4.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz"
+      "resolved": "https://registry.npmjs.org/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz"
     },
     "grunt-contrib-copy": {
       "version": "0.5.0",
       "from": "grunt-contrib-copy@>=0.5.0 <0.6.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-copy/-/grunt-contrib-copy-0.5.0.tgz"
+      "resolved": "https://registry.npmjs.org/grunt-contrib-copy/-/grunt-contrib-copy-0.5.0.tgz"
     },
     "grunt-contrib-cssmin": {
       "version": "0.9.0",
       "from": "grunt-contrib-cssmin@>=0.9.0 <0.10.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.9.0.tgz",
+      "resolved": "https://registry.npmjs.org/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.9.0.tgz",
       "dependencies": {
         "chalk": {
           "version": "0.4.0",
@@ -522,7 +522,7 @@
     "grunt-contrib-jst": {
       "version": "0.6.0",
       "from": "grunt-contrib-jst@>=0.6.0 <0.7.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-jst/-/grunt-contrib-jst-0.6.0.tgz",
+      "resolved": "https://registry.npmjs.org/grunt-contrib-jst/-/grunt-contrib-jst-0.6.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "2.4.2",
@@ -984,7 +984,7 @@
     "grunt-contrib-uglify": {
       "version": "0.4.1",
       "from": "grunt-contrib-uglify@>=0.4.0 <0.5.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.1.tgz",
+      "resolved": "https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.1.tgz",
       "dependencies": {
         "uglify-js": {
           "version": "2.4.24",
@@ -1166,7 +1166,7 @@
     "grunt-contrib-watch": {
       "version": "0.5.3",
       "from": "grunt-contrib-watch@>=0.5.3 <0.6.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-watch/-/grunt-contrib-watch-0.5.3.tgz",
+      "resolved": "https://registry.npmjs.org/grunt-contrib-watch/-/grunt-contrib-watch-0.5.3.tgz",
       "dependencies": {
         "gaze": {
           "version": "0.4.3",
@@ -1267,12 +1267,12 @@
     "grunt-sails-linker": {
       "version": "0.9.6",
       "from": "grunt-sails-linker@>=0.9.5 <0.10.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-sails-linker/-/grunt-sails-linker-0.9.6.tgz"
+      "resolved": "https://registry.npmjs.org/grunt-sails-linker/-/grunt-sails-linker-0.9.6.tgz"
     },
     "grunt-sync": {
       "version": "0.0.8",
       "from": "grunt-sync@>=0.0.4 <0.1.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-sync/-/grunt-sync-0.0.8.tgz",
+      "resolved": "https://registry.npmjs.org/grunt-sync/-/grunt-sync-0.0.8.tgz",
       "dependencies": {
         "promised-io": {
           "version": "0.3.3",
@@ -1289,7 +1289,7 @@
     "include-all": {
       "version": "0.1.6",
       "from": "include-all@>=0.1.3 <0.2.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/include-all/-/include-all-0.1.6.tgz",
+      "resolved": "https://registry.npmjs.org/include-all/-/include-all-0.1.6.tgz",
       "dependencies": {
         "underscore.string": {
           "version": "2.3.1",
@@ -1301,12 +1301,12 @@
     "lodash": {
       "version": "3.10.1",
       "from": "lodash@>=3.10.1 <4.0.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash/-/lodash-3.10.1.tgz"
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
     },
     "markdown": {
       "version": "0.5.0",
       "from": "markdown@>=0.5.0 <0.6.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/markdown/-/markdown-0.5.0.tgz",
+      "resolved": "https://registry.npmjs.org/markdown/-/markdown-0.5.0.tgz",
       "dependencies": {
         "nopt": {
           "version": "2.1.2",
@@ -1325,12 +1325,12 @@
     "moment": {
       "version": "2.10.6",
       "from": "moment@>=2.10.6 <3.0.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/moment/-/moment-2.10.6.tgz"
+      "resolved": "https://registry.npmjs.org/moment/-/moment-2.10.6.tgz"
     },
     "rc": {
       "version": "0.5.5",
       "from": "rc@>=0.5.0 <0.6.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/rc/-/rc-0.5.5.tgz",
+      "resolved": "https://registry.npmjs.org/rc/-/rc-0.5.5.tgz",
       "dependencies": {
         "minimist": {
           "version": "0.0.10",
@@ -1357,7 +1357,7 @@
     "redis-url": {
       "version": "1.2.1",
       "from": "redis-url@>=1.2.1 <2.0.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/redis-url/-/redis-url-1.2.1.tgz",
+      "resolved": "https://registry.npmjs.org/redis-url/-/redis-url-1.2.1.tgz",
       "dependencies": {
         "redis": {
           "version": "2.0.1",
@@ -1574,7 +1574,7 @@
         "ejs": {
           "version": "0.8.8",
           "from": "ejs@>=0.8.4 <0.9.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/ejs/-/ejs-0.8.8.tgz"
+          "resolved": "https://registry.npmjs.org/ejs/-/ejs-0.8.8.tgz"
         },
         "ejs-locals": {
           "version": "1.0.2",
@@ -2558,7 +2558,7 @@
         "grunt-contrib-clean": {
           "version": "0.5.0",
           "from": "grunt-contrib-clean@>=0.5.0 <0.6.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-clean/-/grunt-contrib-clean-0.5.0.tgz",
+          "resolved": "https://registry.npmjs.org/grunt-contrib-clean/-/grunt-contrib-clean-0.5.0.tgz",
           "dependencies": {
             "rimraf": {
               "version": "2.2.8",
@@ -2570,7 +2570,7 @@
         "grunt-contrib-coffee": {
           "version": "0.10.1",
           "from": "grunt-contrib-coffee@>=0.10.1 <0.11.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-coffee/-/grunt-contrib-coffee-0.10.1.tgz",
+          "resolved": "https://registry.npmjs.org/grunt-contrib-coffee/-/grunt-contrib-coffee-0.10.1.tgz",
           "dependencies": {
             "chalk": {
               "version": "0.4.0",
@@ -2599,17 +2599,17 @@
         "grunt-contrib-concat": {
           "version": "0.3.0",
           "from": "grunt-contrib-concat@>=0.3.0 <0.4.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz"
+          "resolved": "https://registry.npmjs.org/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz"
         },
         "grunt-contrib-copy": {
           "version": "0.5.0",
           "from": "grunt-contrib-copy@>=0.5.0 <0.6.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-copy/-/grunt-contrib-copy-0.5.0.tgz"
+          "resolved": "https://registry.npmjs.org/grunt-contrib-copy/-/grunt-contrib-copy-0.5.0.tgz"
         },
         "grunt-contrib-cssmin": {
           "version": "0.9.0",
           "from": "grunt-contrib-cssmin@>=0.9.0 <0.10.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.9.0.tgz",
+          "resolved": "https://registry.npmjs.org/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.9.0.tgz",
           "dependencies": {
             "chalk": {
               "version": "0.4.0",
@@ -2740,7 +2740,7 @@
         "grunt-contrib-jst": {
           "version": "0.6.0",
           "from": "grunt-contrib-jst@>=0.6.0 <0.7.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-jst/-/grunt-contrib-jst-0.6.0.tgz",
+          "resolved": "https://registry.npmjs.org/grunt-contrib-jst/-/grunt-contrib-jst-0.6.0.tgz",
           "dependencies": {
             "grunt-lib-contrib": {
               "version": "0.7.1",
@@ -3187,7 +3187,7 @@
         "grunt-contrib-uglify": {
           "version": "0.4.1",
           "from": "grunt-contrib-uglify@>=0.4.0 <0.5.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.1.tgz",
+          "resolved": "https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.1.tgz",
           "dependencies": {
             "uglify-js": {
               "version": "2.4.24",
@@ -3369,7 +3369,7 @@
         "grunt-contrib-watch": {
           "version": "0.5.3",
           "from": "grunt-contrib-watch@>=0.5.3 <0.6.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-contrib-watch/-/grunt-contrib-watch-0.5.3.tgz",
+          "resolved": "https://registry.npmjs.org/grunt-contrib-watch/-/grunt-contrib-watch-0.5.3.tgz",
           "dependencies": {
             "gaze": {
               "version": "0.4.3",
@@ -3470,12 +3470,12 @@
         "grunt-sails-linker": {
           "version": "0.9.6",
           "from": "grunt-sails-linker@>=0.9.5 <0.10.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-sails-linker/-/grunt-sails-linker-0.9.6.tgz"
+          "resolved": "https://registry.npmjs.org/grunt-sails-linker/-/grunt-sails-linker-0.9.6.tgz"
         },
         "grunt-sync": {
           "version": "0.0.8",
           "from": "grunt-sync@>=0.0.4 <0.1.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/grunt-sync/-/grunt-sync-0.0.8.tgz",
+          "resolved": "https://registry.npmjs.org/grunt-sync/-/grunt-sync-0.0.8.tgz",
           "dependencies": {
             "promised-io": {
               "version": "0.3.3",
@@ -3516,7 +3516,7 @@
         "include-all": {
           "version": "0.1.6",
           "from": "include-all@>=0.1.3 <0.2.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/include-all/-/include-all-0.1.6.tgz",
+          "resolved": "https://registry.npmjs.org/include-all/-/include-all-0.1.6.tgz",
           "dependencies": {
             "underscore.string": {
               "version": "2.3.1",
@@ -3764,7 +3764,7 @@
         "rc": {
           "version": "0.5.5",
           "from": "rc@>=0.5.0 <0.6.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/rc/-/rc-0.5.5.tgz",
+          "resolved": "https://registry.npmjs.org/rc/-/rc-0.5.5.tgz",
           "dependencies": {
             "minimist": {
               "version": "0.0.10",
@@ -3808,7 +3808,7 @@
         "sails-disk": {
           "version": "0.10.8",
           "from": "sails-disk@>=0.10.0 <0.11.0",
-          "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/sails-disk/-/sails-disk-0.10.8.tgz",
+          "resolved": "https://registry.npmjs.org/sails-disk/-/sails-disk-0.10.8.tgz",
           "dependencies": {
             "waterline-criteria": {
               "version": "0.11.2",
@@ -3916,7 +3916,7 @@
                 "lodash": {
                   "version": "3.10.1",
                   "from": "lodash@>=3.9.0",
-                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash/-/lodash-3.10.1.tgz"
+                  "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
                 },
                 "merge-defaults": {
                   "version": "0.2.1",
@@ -5184,7 +5184,7 @@
                 "lodash": {
                   "version": "3.10.1",
                   "from": "lodash@>=3.10.0 <3.11.0",
-                  "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/lodash/-/lodash-3.10.1.tgz"
+                  "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
                 }
               }
             }
@@ -5207,7 +5207,7 @@
     "sails-disk": {
       "version": "0.10.8",
       "from": "sails-disk@>=0.10.0 <0.11.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/sails-disk/-/sails-disk-0.10.8.tgz",
+      "resolved": "https://registry.npmjs.org/sails-disk/-/sails-disk-0.10.8.tgz",
       "dependencies": {
         "lodash": {
           "version": "2.4.2",
@@ -5273,7 +5273,7 @@
     "sails-mongo": {
       "version": "0.11.4",
       "from": "sails-mongo@>=0.11.4 <0.12.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/sails-mongo/-/sails-mongo-0.11.4.tgz",
+      "resolved": "https://registry.npmjs.org/sails-mongo/-/sails-mongo-0.11.4.tgz",
       "dependencies": {
         "async": {
           "version": "1.4.2",
@@ -5370,7 +5370,7 @@
     "slug": {
       "version": "0.9.1",
       "from": "slug@>=0.9.1 <0.10.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/slug/-/slug-0.9.1.tgz",
+      "resolved": "https://registry.npmjs.org/slug/-/slug-0.9.1.tgz",
       "dependencies": {
         "unicode": {
           "version": "0.6.1",
@@ -5401,7 +5401,7 @@
     "socket.io-redis": {
       "version": "0.1.4",
       "from": "socket.io-redis@>=0.1.4 <0.2.0",
-      "resolved": "http://ec2-52-25-47-76.us-west-2.compute.amazonaws.com:8082/nexus/content/groups/npm-all/socket.io-redis/-/socket.io-redis-0.1.4.tgz",
+      "resolved": "https://registry.npmjs.org/socket.io-redis/-/socket.io-redis-0.1.4.tgz",
       "dependencies": {
         "debug": {
           "version": "0.7.4",
