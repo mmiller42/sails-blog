@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "bcrypt": "^0.8.4",
-    "connect-redis": "^1.4.5",
+    "connect-redis": "1.4.5",
     "ejs": "~0.8.4",
     "express-force-ssl": "^0.3.0",
     "grunt": "0.4.2",
